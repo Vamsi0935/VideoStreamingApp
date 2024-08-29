@@ -1,0 +1,63 @@
+.login-container {
+    display: flex;
+    justify-content: end;
+    padding-right: 7%;
+    align-items: center;
+    height: 91vh;
+    background-image: url("https://www.shutterstock.com/image-vector/internet-digital-syber-security-technology-260nw-1518108761.jpg");
+    background-size: cover;
+}
+
+.login-form {
+    max-width: 480px;
+    width: 100%;
+    padding: 3rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+}
+
+.login-form h1 {
+    margin-bottom: 1rem;
+}
+
+.login-form .btn {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.login-form .form-label {
+    font-weight: bold;
+}
+
+.login-form .form-control {
+    margin-bottom: 1rem;
+}
+
+.login-form a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login-form a:hover {
+    text-decoration: underline;
+}
+
+.form-control {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 70%;
+    right: 20px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #6c757d;
+}
