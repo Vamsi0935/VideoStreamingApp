@@ -13,7 +13,7 @@ const VideoUpload = () => {
 
   const fetchVideoList = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/videos");
+      const response = await axios.get("https://video-streaming-app-api.vercel.app/api/videos");
       setVideoList(response.data.videos || []);
     } catch (error) {
       console.error("Error fetching video list", error);
@@ -39,7 +39,7 @@ const VideoUpload = () => {
 
       try {
         const response = await axios.post(
-          "http://localhost:5000/api/videos/video",
+          "https://video-streaming-app-api.vercel.app/api/videos/video",
           formData
         );
         console.log("Video uploaded successfully", response.data);
@@ -114,7 +114,7 @@ const VideoUpload = () => {
       {videoUrl && (
         <div className="video-container">
           <video controls width="600">
-            <source src={`http://localhost:5000${videoUrl}`} type="video/mp4" />
+            <source src={`https://video-streaming-app-api.vercel.app${videoUrl}`} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
@@ -127,7 +127,7 @@ const VideoUpload = () => {
               <div className="video-card" key={index}>
                 <video controls width="300" className="card-video">
                   <source
-                    src={`http://localhost:5000${video.filePath}`}
+                    src={`https://video-streaming-app-api.vercel.app${video.filePath}`}
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
