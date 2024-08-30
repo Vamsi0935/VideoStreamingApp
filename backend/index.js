@@ -10,7 +10,9 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(cors({ origin:'http://localhost:3000', "https://video-streaming-app-frontend-blond.vercel.app",methods: ['GET', 'POST'],credentials: true }));
+app.use(cors({ origin:'http://localhost:3000', "https://video-streaming-app-frontend-blond.vercel.app",methods: ['GET', 'POST'],credentials: true },headers: {
+    "Access-Control-Allow-Origin": "*"
+  }));
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
