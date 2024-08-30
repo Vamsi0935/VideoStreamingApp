@@ -32,7 +32,7 @@ const Login = () => {
           icon: "success",
           confirmButtonText: "OK",
         }).then(() => {
-          navigate("/", { state: { user: response.data.user } });
+          navigate("/home", { state: { user: response.data.user } });
         });
       } else {
         Swal.fire({

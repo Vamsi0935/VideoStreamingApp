@@ -34,7 +34,7 @@ const Register = () => {
           icon: "success",
           confirmButtonText: "OK",
         }).then(() => {
-          navigate("/login");
+          navigate("/");
         });
       }
     } catch (err) {
@@ -122,7 +122,7 @@ const Register = () => {
           </div>
           <div className="mt-5 text-center" style={{fontSize:"18px"}}>
             <span>
-              Existing User? <Link to="/login">Login</Link>
+              Existing User? <Link to="/">Login</Link>
             </span>
           </div>
           <div className="d-flex justify-content-center">
