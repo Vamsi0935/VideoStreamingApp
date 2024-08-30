@@ -1,6 +1,3 @@
-/* uploadVideo.css */
-
-/* Main container for the upload section */
 .upload-container {
     display: flex;
     flex-direction: column;
@@ -8,12 +5,10 @@
     padding: 20px;
 }
 
-/* Heading styles */
 h1 {
     margin-bottom: 20px;
 }
 
-/* Input group styles */
 .input-group {
     display: flex;
     flex-direction: column;
