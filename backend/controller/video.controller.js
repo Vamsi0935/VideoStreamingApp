@@ -1,16 +1,21 @@
-const Video = require("../model/video.model.js");
+const Video = require("../model/video.model");
 const { createReadStream, statSync } = require("fs");
 const path = require("path");
 
+// Get all videos
 const getAllVideos = async (req, res) => {
   try {
     const videos = await Video.find();
-    res.json(videos);
+    res.json({ videos });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    console.error("Error fetching video list:", error);
+    res
+      .status(500)
+      .json({ error: "Error fetching video list", details: error.message });
   }
 };
 
+// Get a specific video
 const getVideo = (req, res) => {
   const videoFileName = req.params.fileName;
   const filePath = path.join(__dirname, "../uploads/courses", videoFileName);
@@ -60,4 +65,25 @@ const getVideo = (req, res) => {
   });
 };
 
-module.exports = { getAllVideos, getVideo };
+// Add a new video
+const uploadVideo = async (req, res) => {
+  if (!req.file) {
+    return res.status(400).send("No file uploaded.");
+  }
+
+  const newVideo = new Video({
+    filePath: `/uploads/courses/${req.file.originalname}`,
+    title: req.body.title || "",
+    description: req.body.description || "",
+  });
+
+  try {
+    const savedVideo = await newVideo.save();
+    res.status(201).json({ filePath: savedVideo.filePath });
+  } catch (err) {
+    console.error("Error saving video:", err);
+    res.status(500).json({ error: "Error saving video", details: err.message });
+  }
+};
+
+module.exports = { getAllVideos, getVideo, uploadVideo };

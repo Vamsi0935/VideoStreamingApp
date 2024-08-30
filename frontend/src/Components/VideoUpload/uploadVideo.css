@@ -1,3 +1,6 @@
+/* uploadVideo.css */
+
+/* Main container for the upload section */
 .upload-container {
     display: flex;
     flex-direction: column;
@@ -5,10 +8,12 @@
     padding: 20px;
 }
 
+/* Heading styles */
 h1 {
     margin-bottom: 20px;
 }
 
+/* Input group styles */
 .input-group {
     display: flex;
     flex-direction: column;
@@ -38,6 +43,7 @@ textarea {
     resize: vertical;
 }
 
+/* Button group styles */
 .button-group {
     display: flex;
     flex-direction: column;
@@ -51,6 +57,7 @@ textarea {
     font-size: 16px;
 }
 
+/* Video container styles */
 .video-container {
     margin: 20px 0;
     text-align: center;
@@ -61,6 +68,7 @@ textarea {
     height: auto;
 }
 
+/* Video list styles */
 .video-list {
     display: flex;
     flex-direction: column;
@@ -100,23 +108,39 @@ textarea {
     color: #555;
 }
 
-.card-container {
+/* Container for video cards */
+.video-cards-container {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     padding: 2%;
 }
 
+/* Card for each video */
 .video-card {
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    width: 320px;
-    padding: 2%;
+    width: 300px;
+    background-color: #fff;
 }
 
-.card-video {
+.video-card-thumbnail {
     width: 100%;
     height: auto;
+}
+
+.video-card-details {
+    padding: 10px;
+}
+
+.video-card-details h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.video-card-details p {
+    margin: 5px 0;
+    color: #666;
 }

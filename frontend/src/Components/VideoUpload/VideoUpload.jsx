@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -13,7 +14,7 @@ const VideoUpload = () => {
 
   const fetchVideoList = async () => {
     try {
-      const response = await axios.get("https://video-streaming-app-api.vercel.app/api/videos");
+      const response = await axios.get("http://localhost:5000/api/videos/");
       setVideoList(response.data.videos || []);
     } catch (error) {
       console.error("Error fetching video list", error);
@@ -39,7 +40,7 @@ const VideoUpload = () => {
 
       try {
         const response = await axios.post(
-          "https://video-streaming-app-api.vercel.app/api/videos/video",
+          "http://localhost:5000/api/videos/video",
           formData
         );
         console.log("Video uploaded successfully", response.data);
@@ -114,7 +115,7 @@ const VideoUpload = () => {
       {videoUrl && (
         <div className="video-container">
           <video controls width="600">
-            <source src={`https://video-streaming-app-api.vercel.app${videoUrl}`} type="video/mp4" />
+            <source src={`http://localhost:5000${videoUrl}`} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
@@ -122,17 +123,17 @@ const VideoUpload = () => {
       <div className="video-list">
         <h2 className="display-6 mt-5">Previously Uploaded Videos</h2>
         {videoList.length > 0 ? (
-          <div className="card-container">
+          <div className="video-cards-container">
             {videoList.map((video, index) => (
-              <div className="video-card" key={index}>
-                <video controls width="300" className="card-video">
+              <div key={index} className="video-card">
+                <video controls width="300" className="video-card-thumbnail">
                   <source
-                    src={`https://video-streaming-app-api.vercel.app${video.filePath}`}
+                    src={`http://localhost:5000${video.filePath}`}
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
                 </video>
-                <div className="video-details">
+                <div className="video-card-details">
                   <h3>{video.title}</h3>
                   <p>{video.description}</p>
                 </div>
