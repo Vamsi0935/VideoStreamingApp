@@ -7,10 +7,9 @@ const videoRoutes = require("./routes/video.route");
 
 const app = express();
 
-// List of allowed origins
 const allowedOrigins = [
   "https://video-streaming-app-frontend-blond.vercel.app",
-  "http://localhost:3000", // Add localhost for development
+  "http://localhost:3000", 
 ];
 
 // CORS configuration
