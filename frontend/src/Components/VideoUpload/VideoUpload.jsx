@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -65,7 +64,7 @@ const VideoUpload = () => {
         });
       }
     } else {
-      Swal.fire({ 
+      Swal.fire({
         title: "Error!",
         text: "Please provide a title and description.",
         icon: "error",
@@ -123,10 +122,10 @@ const VideoUpload = () => {
       <div className="video-list">
         <h2 className="display-6 mt-5">Previously Uploaded Videos</h2>
         {videoList.length > 0 ? (
-          <ul>
+          <div className="card-container">
             {videoList.map((video, index) => (
-              <li key={index}>
-                <video controls width="300">
+              <div className="video-card" key={index}>
+                <video controls width="300" className="card-video">
                   <source
                     src={`http://localhost:5000${video.filePath}`}
                     type="video/mp4"
@@ -137,9 +136,9 @@ const VideoUpload = () => {
                   <h3>{video.title}</h3>
                   <p>{video.description}</p>
                 </div>
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         ) : (
           <p>No videos uploaded yet.</p>
         )}
